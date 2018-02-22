@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block titulo %} Listado de Noticias {% endblock %}
+{% block content %}
+{% load staticfiles %}
+  <section>
+    <div class="container">
+      <div class="col-lg-12">
+      {% for juegosinflables in object_list|slice:":1" %}
+        <h1>{{juegosinflables.name}}<small> {{juegosinflables.category.name}}</small></h1>
+        <p><em>Precio: {{juegosinflables.precio}} pesos chilenos</em></p>
+        <img src="{{ juegosinflables.foto.url }}" alt="" class="img-responsive img-thumbnail pull-left img-margin-right">
+        <h3>{{juegosinflables.indicaciones}}</h3>
+        {% endfor %}          
+      </div>
+
+    </div>
+  </section>
+  {% endblock %}
